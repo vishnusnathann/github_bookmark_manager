@@ -20,6 +20,10 @@ const CutsomPagination = ({currentPage,totalResults,setCurrentPage}) => {
             else
                 last = totalPage;
         }
+        else if(currentPage<10){
+             first = 1;
+             last = 10;
+        }
         else if(currentPage + 10 > totalPage ){
             last = totalPage;
             first = totalPage - 10;
