@@ -5,7 +5,7 @@ export const ToastSuccess = () => {
 
         toast.success("Repository added",{
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

@@ -15,6 +15,13 @@ const Home = () => {
             <Link className="self-end no-underline" to="/repoadd">
                 <div className=" mx-8 border-2 rounded-md border-blue-500 font-bold p-2 no-underline text-blue-600  hover:text-blue-400 cursor-pointer">Add Repository</div>
             </Link>
+            {
+                (repoData.length === 0) && 
+                    <div className="px-8 py-2 overflow-y-auto mb-4 text-2xl text-gray-600 flex justify-center items-center" style={{minHeight:"calc(100vh - 200px)"}}>
+                        No repositories added
+                    </div>
+
+            }
             <div className="px-8 py-2 overflow-y-auto mb-4" style={{maxHeight:"calc(100vh - 200px)"}}>
                 {
                     repoData.map((repo,index)=>{

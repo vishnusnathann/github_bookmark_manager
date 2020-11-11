@@ -13,13 +13,12 @@ const CutsomPagination = ({currentPage,totalResults,setCurrentPage}) => {
         let tempPageList = [];
         let first = 1;
         let last = 10;
-        if(currentPage < 10){
+        if(totalPage < 10){
             first =1;
-            last = 10;
-        }        
-        else if(totalPage < 10){
-            first =1;
-            last = totalPage;
+            if(totalPage === 0)
+                last = 1
+            else
+                last = totalPage;
         }
         else if(currentPage + 10 > totalPage ){
             last = totalPage;
@@ -52,7 +51,7 @@ const CutsomPagination = ({currentPage,totalResults,setCurrentPage}) => {
             <Pagination.Next onClick={()=>{setCurrentPage(currentPage + 1)}}/>
             <Pagination.Last onClick={()=>{setCurrentPage(totalPage)}}/>
         </Pagination>
-            <span className="text-gray-700 text-center text-sm px-1 flex justify-items-center justify-center items-center w">{totalPage} pages</span>
+            <span className="text-gray-700 text-center text-sm px-1 flex justify-items-center justify-center items-center w">{Math.max(totalPage,1)} pages</span>
         </div>
     )
 }
