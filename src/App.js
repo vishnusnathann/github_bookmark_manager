@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Fragment} from 'react';
+import GlobalState from './context/globaState';
+import  Navbar  from './components/Navbar';
+import Search from './components/Search';
+import Home from './components/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalState>
+        <Router>
+        <Fragment>
+            <Navbar/>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route  path="/repoadd" component={Search} />
+            </Switch>
+          </Fragment>
+			</Router>
+    </GlobalState>
   );
 }
 
